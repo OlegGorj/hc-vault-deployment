@@ -40,7 +40,7 @@ helm upgrade --install --set image.tag=0.4.17 --set etcd-operator.enabled=false 
 Step 2: Apply RBAC settings
 
 ```
-kubectl apply -f rbac.yaml
+kubectl apply -f vault/rbac.yaml
 ```
 
 Step 3: Create Vault cluster
@@ -60,7 +60,7 @@ spec:
 Now, apply the changes and create the clusters:
 
 ```
-kubectl apply -f vault.yaml
+kubectl apply -f vault/vault.yaml
 ```
 
 Step 4: Verify installation
@@ -80,7 +80,7 @@ kubectl get secrets vault-tls -o json | jq -r '.data["ca.crt"]' | base64 --decod
 export VAULT_CACERT=~/vault-tls-ca.pem
 ```
 
-Hope all this worked well for you. Happy `Vaulting`! 
+Hope all this worked well for you. Happy `Vaulting`!
 
 
 ### Some helpful references
